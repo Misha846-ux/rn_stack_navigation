@@ -1,20 +1,27 @@
+import { NavigationContainer } from '@react-navigation/native';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { AppNavigator } from './src/navigation/AppNavigator';
+import { AppTabNavigator } from './src/navigation/AppTabNavigator';
+import { DrawerNavigator } from './src/navigation/DrawerNavigator';
+import * as SQLite from 'expo-sqlite';
+import BookAppDrawerNavigator from './src/navigation/BookAppDrawerNavigator';
+import { useEffect } from 'react';
+import { Dbinfrastructure } from './src/infrastructure/bdinfrastructure';
 
 export default function App() {
+  
+  useEffect(() => {
+    const initializeDatabase = async () => {
+      await Dbinfrastructure.openDatabase();
+      await Dbinfrastructure.createTables();
+    };
+
+    initializeDatabase();
+  }, []);
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
+    <NavigationContainer>
+      <BookAppDrawerNavigator />
       <StatusBar style="auto" />
-    </View>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

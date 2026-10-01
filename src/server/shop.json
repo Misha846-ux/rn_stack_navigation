@@ -1,0 +1,40 @@
+{
+    "Products": [
+        {
+            "id": "1",
+            "name": "Classic Denim Jacket",
+            "price": "$110.00",
+            "image": "https://images.unsplash.com/photo-1543076447-215ad9ba6923?w=700"
+        },
+        {
+            "id": "2",
+            "name": "Linen Sundress",
+            "price": "$125.00",
+            "image": "https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=700"
+        },
+        {
+            "id": "3",
+            "name": "Linen Dress",
+            "price": "$125.00",
+            "image": "https://images.unsplash.com/photo-1591369822096-ffd140ec948f?w=700"
+        },
+        {
+            "id": "4",
+            "name": "Eashinn Jacket",
+            "price": "$130.00",
+            "image": "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=700"
+        },
+        {
+            "id": "5",
+            "name": "Classic Knit Sweater",
+            "price": "$95.00",
+            "image": "https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=700"
+        },
+        {
+            "id": "6",
+            "name": "Striped Cotton Shirt",
+            "price": "$130.00",
+            "image": "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=700"
+        }
+    ]
+}
