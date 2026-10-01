@@ -28,19 +28,18 @@ export const BookListScreen = () => {
     }, []),
   );
 
-  const deleteBook = async (title: string) => {
-    const updatedBooks = books.filter((book) => book.title !== title);
-    await AsyncStorage.setItem("books", JSON.stringify(updatedBooks));
-    setBooks(updatedBooks);
+  const deleteBook = async (id: string) => {
+    await Dbinfrastructure.deleteBookById(id);
+    loadBooks();
   }
 
   const ClearAllBooks = async () => {
-    await AsyncStorage.clear();
+    await Dbinfrastructure.clearBooks();
     setBooks([]);
   }
 
   return (
-    <View style={styles.container}>
+    <View style={styles.container} id={books.length.toString()}>
       <Text style={styles.title}>Список книг</Text>
       <Button title="Очистить список" onPress={ClearAllBooks} />
       <FlatList
@@ -50,7 +49,7 @@ export const BookListScreen = () => {
           <View style={styles.bookItem}>
             <Text style={styles.bookTitle}>{item.title}</Text>
             <Text style={styles.bookAuthor}>Автор: {item.author}</Text>
-            <Button title="Удалить" onPress={async () => await deleteBook(item.title)} />
+            <Button title="Удалить" onPress={async () => await deleteBook(item.id as string)} />
           </View>
         )}
       />

@@ -94,4 +94,24 @@ export class Dbinfrastructure {
             return [];
         }
     }
+
+    static async clearBooks(): Promise<void> {
+        if (!this.db) return;
+        try {
+            await this.db.execAsync(`DELETE FROM books;`);
+        }
+        catch (error) {
+            console.error("Помилка при очищенні бази даних:", error);
+        }
+    }
+
+    static async deleteBookById(id: string): Promise<void> {
+        if (!this.db) return;
+        try {
+            await this.db.runAsync(`DELETE FROM books WHERE id = ?;`, [id]);
+        }
+        catch (error) {
+            console.error("Помилка при видаленні книги з бази даних:", error);
+        }
+    }
 }
