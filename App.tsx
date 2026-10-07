@@ -20,7 +20,7 @@ export default function App() {
   }, []);
   return (
     <NavigationContainer>
-      <BookAppDrawerNavigator />
+      <AppNavigator />
       <StatusBar style="auto" />
     </NavigationContainer>
   );
