@@ -17,7 +17,7 @@ import { AddAuthorScreen } from "../screens/BooksScreen/AddAuthorScreen";
 
 const Drawer = createDrawerNavigator();
 
-export default function App() {
+export default function BookAppDrawerNavigator() {
   return (
       <Drawer.Navigator initialRouteName="Список книг">
         <Drawer.Screen name="Список книг" component={BookListScreen} />
